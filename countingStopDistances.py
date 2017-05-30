@@ -7,8 +7,20 @@ def generateCollatzPlot(n):
 	for val in x_value:
 		num_iterations.append(numToFinishCollatz(val))
 
-	pyplot.plot(num_iterations, 'ro')	
-	pyplot.ylabel('Number of Iterations to get to 1')
+	num_occurances = {}
+
+	for val in num_iterations:
+		if val in num_occurances:
+			num_occurances[val] = num_occurances[val] + 1
+		else:
+			num_occurances[val] = 1
+
+	print(list(num_occurances.values()))
+
+	pyplot.plot(list(num_occurances.values()), 'ro')	
+	pyplot.title('Frequency plot for Collatz sequence: until ' + str(n))
+	pyplot.xlabel('Number of times to get to 1')
+	pyplot.ylabel('Number of occurances')
 	pyplot.show()
 
 def numToFinishCollatz(n):
@@ -26,4 +38,4 @@ def numToFinishCollatz(n):
 	return count
 
 
-generateCollatzPlot(40000)
+generateCollatzPlot(10000)
