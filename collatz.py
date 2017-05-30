@@ -7,8 +7,8 @@ def generateCollatzPlot(n):
 	for val in x_value:
 		num_iterations.append(numToFinishCollatz(val))
 
-	pyplot.plot(num_iterations)	
-	pyplot.ylabel('some numbers')
+	pyplot.plot(num_iterations, 'ro')	
+	pyplot.ylabel('Number of Iterations to get to 1')
 	pyplot.show()
 
 def numToFinishCollatz(n):
@@ -26,4 +26,4 @@ def numToFinishCollatz(n):
 	return count
 
 
-generateCollatzPlot(1000000)
+generateCollatzPlot(10000)
